@@ -12,3 +12,7 @@ import sys
 
 # File to copy
 filename = str(sys.argv[1])
+
+file = open(filename, encoding='utf-8')
+
+print(file.read())
