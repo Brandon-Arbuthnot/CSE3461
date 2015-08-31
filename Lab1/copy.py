@@ -16,8 +16,7 @@ import os
 
 # File to copy and to write
 filename = str(sys.argv[1])
-file = open(filename, encoding='utf-8')
-newfile = open("recv/"+filename, "w")
+file = open(filename, 'rb')
 
 # Creates recv directory
 directory = "recv"
@@ -25,14 +24,22 @@ directory = "recv"
 if not os.path.exists(directory):
     os.makedirs(directory)
 
+newfile = open("recv/"+filename, "wb")
+
 # Loops through original file and writes new file in the new directory
-try:
-	counter = 1
-	byte = file.read(counter)
-	newfile.write(byte)
-	while byte != "":
-		byte = file.read(counter)
-		newfile.write(byte)
-		counter = counter + 1
-finally:
-	file.close()
+
+chunksize = 1000
+while True:
+	data = file.read(chunksize)
+	if data:
+		newfile.write(data)
+	else:
+		break
+
+# Always close your streams
+
+file.close()
+newfile.close()
+
+
+print("Your file has been copied in recv/"+filename)
