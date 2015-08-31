@@ -13,6 +13,7 @@
 
 import sys
 import os
+import hashlib
 
 # File to copy and to write
 filename = str(sys.argv[1])
@@ -37,9 +38,35 @@ while True:
 		break
 
 # Always close your streams
-
 file.close()
 newfile.close()
 
+newfile = open("recv/"+filename, "rb")
+file = open(filename, 'rb')
 
 print("Your file has been copied in recv/"+filename)
+
+oldhash = hashlib.md5()
+newhash = hashlib.md5()
+
+print("Hashing MD5 checksum for both files...")
+
+# Loop to hash the MD5 checksum for both files
+
+chunksize = 1000
+while True:
+	data = file.read(chunksize)
+	newdata = newfile.read(chunksize)
+	if data:
+		oldhash.update(data)
+		newhash.update(newdata)
+
+	else:
+		break
+
+print("The two files are identical: " + str(oldhash.hexdigest() == newhash.hexdigest()))
+
+# Always close your streams
+
+file.close()
+newfile.close()
