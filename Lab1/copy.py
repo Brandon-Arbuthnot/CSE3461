@@ -64,7 +64,7 @@ while True:
 	else:
 		break
 
-print("The two files are identical: " + str(oldhash.hexdigest() == newhash.hexdigest()))
+print("The two files are bitwise identical: " + str(oldhash.hexdigest() == newhash.hexdigest()))
 
 # Always close your streams
 
