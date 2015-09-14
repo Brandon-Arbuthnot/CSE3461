@@ -81,7 +81,20 @@ Source: \url{http://www.technicaljournalsonline.com/ijeat/VOL\%20V/IJAET\%20VOL\
 
 \begin{enumerate}
 \item \textbf{(3 points)} What is the packet inter-arrival time at the destination? That is, how much time elapses from when the last bit of the first packet arrives until the last bit of the second packet arrives?
+
+	Packet Inter-Arrival Time = $ L\textsubscript{bits/request}/R\textsubscript{S}$
+
+
 \item \textbf{(3 points)} Now assume that the second link is the bottleneck link (i.e., $R\textsubscript{c} < R\textsubscript{s}$. Is it possible that the second packet queues at the input queue of the second link? Explain. Now suppose that the server sends the second packet $T$ seconds after sending the first packet. How large must $T$ be to ensure no queueing before the second link? Explain.  
+
+	Yes, it is possible that the second packet queues at the input queue of the first packet. 
+
+	\vspace{60 mm}
+	
+	If the bottleneck is at R\textsubscript{C} then $T$ mus tbe of size: $L/R\textsubscript{c} - L/R\textsubscript{S}$ .
+
+	If the bottleneck was at R\textsubscript{S} the size would be 0 since the packet is originating from A.
+
 \end{enumerate}
 
 \item[5]\textbf{(8 points)} Read the \texttt{man} pages for \texttt{nslookup(1)} and \texttt{whois(1)}. If you are not very familiar with UNIX man pages, start with \texttt{man man}. For all parts below, describe the commands you use to obtain your answers.
