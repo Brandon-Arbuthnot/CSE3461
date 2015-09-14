@@ -6,6 +6,7 @@
 \usepackage{amsmath}
 \usepackage{fixltx2e}
 \usepackage{hyperref}
+\usepackage{graphicx}
 
 \begin{document}
 \begin{flushright}
@@ -123,6 +124,10 @@ The server \texttt{www.osu.edu} does have multiple IP addresses.
 \begin{enumerate}
 \item \textbf{(2 points)} Perform \texttt{traceroute} to two hosts, each in a different city in China. Submit a printout of the two \texttt{traceroute} operation from the site. How many links are the same in the two \texttt{traceroutes}? Is the transpacific link the same?
 
+\includegraphics[scale=0.5]{cn1.png}
+
+\includegraphics[scale=0.5]{cn2.png}
+
 The only two links that are the same are the initial two. The transpacific link is not the same.
 
 To get the traceroute, I ran the following commands;
@@ -133,11 +138,17 @@ To get the traceroute, I ran the following commands;
 
 \item \textbf{(2 points)} Repeat (a) but choose one city in china and another city in India.
 
-\texttt{traceroute www.india.gov.in}
+\includegraphics[scale=0.5]{in1.png}
+
+\texttt{traceroute india.gov.in}
 
 This traceroute shared another link with the \url{gov.cn} website, but none of them after that.
 
 \item \textbf{(2 points)} Perform two \texttt{traceroutes} to two hosts, each in a different city in Europe. How many links are common to the two \texttt{traceroutes}? Do the \texttt{traceroutes} diverge before reaching Europe?
+
+\includegraphics[scale=0.5]{eu1.png}
+
+\includegraphics[scale=0.5]{ie1.png}
 
 To get the traceroute, I ran the following commands;
 
