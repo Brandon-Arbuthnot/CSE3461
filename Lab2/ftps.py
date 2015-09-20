@@ -1,5 +1,7 @@
  # Echo server program
 import socket
+import os
+import sys
 
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT = 5000              # Arbitrary non-privileged port

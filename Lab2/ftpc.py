@@ -1,5 +1,7 @@
 # Echo client program
 import socket
+import os
+import sys
 
 HOST = 'gamma'    # The remote host
 PORT = 5000              # The same port as used by the server
