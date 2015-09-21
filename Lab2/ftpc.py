@@ -12,10 +12,10 @@ filename = str(sys.argv[3])
 file = open(filename, 'rb')
 
 # Sends the file size in the first four bytes
-s.sendall(os.stat(filename).st_size.encode())
+s.sendall(str(os.stat(filename).st_size).encode())
 
 # Sends the file name in the next 20 bytes, assuming the name fits
-s.sendall(file.encode())
+s.sendall(filename.encode())
 
 # Iterates through the file in chunks of size 1000 and sends the data if it exists
 chunksize = 1000
