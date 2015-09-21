@@ -12,11 +12,13 @@ directory = "recv"
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-newfile = open("recv/file", "wb")
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)
+data = conn.recv(4)
+data = conn.recv(20)
+newfile = open("recv/"+data, "wb")
 conn, addr = s.accept()
 print ('Connected by', addr)
 while 1:
