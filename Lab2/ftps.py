@@ -4,7 +4,7 @@ import os
 import sys
 
 HOST = ''                 # Symbolic name meaning all available interfaces
-PORT = str(sys.argv[1])              # Arbitrary non-privileged port
+PORT =int(sys.argv[1])              # Arbitrary non-privileged port
 
 # Creates recv directory
 directory = "recv"
@@ -21,7 +21,7 @@ data = conn.recv(4)
 print("File Size", data.decode('utf-8'))
 data = conn.recv(20)
 print("File Name", data.decode('utf-8'))
-newfile = open("recv/"+data.decode('utf-8'), "wb")
+newfile = open("recv/"+data.decode('utf-8').strip(), "wb")
 print ('Connected by', addr)
 while 1:
     data = conn.recv(1000)

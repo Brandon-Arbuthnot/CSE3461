@@ -4,7 +4,7 @@ import os
 import sys
 
 HOST = str(sys.argv[1])    # The remote host
-PORT = str(sys.argv[2])              # The same port as used by the server
+PORT = int(sys.argv[2])              # The same port as used by the server
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.connect((HOST, PORT))
 
@@ -15,11 +15,11 @@ file = open(filename, 'rb')
 s.sendall(str(os.stat(filename).st_size).encode('utf-8'))
 
 # Sends the file name in the next 20 bytes, assuming the name fits
-if(len(filename) < 20)
-	while len(filname) != 20)
+if(len(filename) < 20):
+	while len(filename) != 20:
 		filename += " "
-elif (len(filename) > 20)
-	filename = filname[0:20]
+elif (len(filename) > 20):
+	filename = filename[0:20]
 s.sendall(filename.encode('utf-8'))
 
 # Iterates through the file in chunks of size 1000 and sends the data if it exists
