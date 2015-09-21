@@ -16,13 +16,13 @@ if not os.path.exists(directory):
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)
+conn, addr = s.accept()
 data = conn.recv(4)
 data = conn.recv(20)
 newfile = open("recv/"+data, "wb")
-conn, addr = s.accept()
 print ('Connected by', addr)
 while 1:
-    data = conn.recv(1024)
+    data = conn.recv(1000)
     # Writes the data to the file when it receives it
     newfile.write(data)
     if not data: break
