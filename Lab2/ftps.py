@@ -8,6 +8,7 @@
 import socket
 import os
 import sys
+import hashlib
 
 HOST = ''                 # Symbolic name meaning all available interfaces
 PORT =int(sys.argv[1])              # Arbitrary non-privileged port
@@ -51,8 +52,6 @@ newfile.close()
 
 newfile = open("recv/"+newfilename, "rb")
 file = open(newfilename, 'rb')
-
-print("Your file has been copied in recv/"+filename)
 
 oldhash = hashlib.md5()
 newhash = hashlib.md5()
