@@ -21,7 +21,7 @@ data = conn.recv(4)
 print("File Size", data)
 data = conn.recv(20)
 print("File Name", data)
-newfile = open("recv/"+data, "wb")
+newfile = open("recv/"+data.decode(), "wb")
 print ('Connected by', addr)
 while 1:
     data = conn.recv(1000)
