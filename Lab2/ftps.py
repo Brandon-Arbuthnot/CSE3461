@@ -4,7 +4,7 @@ import os
 import sys
 
 HOST = ''                 # Symbolic name meaning all available interfaces
-PORT = 5000              # Arbitrary non-privileged port
+PORT = str(sys.argv[1])              # Arbitrary non-privileged port
 
 # Creates recv directory
 directory = "recv"
