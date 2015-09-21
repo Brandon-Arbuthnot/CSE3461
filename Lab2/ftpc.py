@@ -11,7 +11,14 @@ s.connect((HOST, PORT))
 filename = str(sys.argv[3])
 file = open(filename, 'rb')
 
-chunksize = 1024
+# Sends the file size in the first four bytes
+s.sendall(os.stat(filename).st_size.encode())
+
+# Sends the file name in the next 20 bytes, assuming the name fits
+s.sendall(file.encode())
+
+# Iterates through the file in chunks of size 1000 and sends the data if it exists
+chunksize = 1000
 while True:
 	data = file.read(chunksize)
 	if data:
@@ -20,7 +27,8 @@ while True:
 		break
 
 data = s.recv(1024)
+
+#Close your streams!
 s.close()
+file.close()
 print ('Received', repr(data))
-
-

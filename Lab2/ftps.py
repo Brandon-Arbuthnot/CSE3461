@@ -21,10 +21,11 @@ conn, addr = s.accept()
 print ('Connected by', addr)
 while 1:
     data = conn.recv(1024)
+    # Writes the data to the file when it receives it
     newfile.write(data)
     if not data: break
     conn.sendall(data)
+
+# Close your streams!
 conn.close()
-
-
-
+newfile.close()
