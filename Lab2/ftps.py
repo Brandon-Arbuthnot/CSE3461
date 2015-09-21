@@ -20,7 +20,7 @@ conn, addr = s.accept()
 data = conn.recv(4)
 print("File Size", data.decode('utf-8'))
 data = conn.recv(20)
-print("File Name", data.decod('utf-8'))
+print("File Name", data.decode('utf-8'))
 newfile = open("recv/"+data.decode('utf-8'), "wb")
 print ('Connected by', addr)
 while 1:
