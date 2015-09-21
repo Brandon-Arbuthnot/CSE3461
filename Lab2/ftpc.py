@@ -15,6 +15,11 @@ file = open(filename, 'rb')
 s.sendall(str(os.stat(filename).st_size).encode('utf-8'))
 
 # Sends the file name in the next 20 bytes, assuming the name fits
+if(len(filename) < 20)
+	while len(filname) != 20)
+		filename += " "
+elif (len(filename) > 20)
+	filename = filname[0:20]
 s.sendall(filename.encode('utf-8'))
 
 # Iterates through the file in chunks of size 1000 and sends the data if it exists
