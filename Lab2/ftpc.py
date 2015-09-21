@@ -31,4 +31,4 @@ data = s.recv(1024)
 #Close your streams!
 s.close()
 file.close()
-print ('Received', repr(data))
+print ('Received', repr(data.decode('utf-8')))
