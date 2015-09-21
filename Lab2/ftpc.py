@@ -1,3 +1,9 @@
+# Lab 2 - CSE 3461
+# Socket Programming
+
+# Sonny Shi
+# shi.354@osu.edu
+
 # Echo client program
 import socket
 import os
@@ -20,6 +26,7 @@ if(len(filename) < 20):
 		filename += " "
 elif (len(filename) > 20):
 	filename = filename[0:20]
+
 s.sendall(filename.encode('utf-8'))
 
 # Iterates through the file in chunks of size 1000 and sends the data if it exists

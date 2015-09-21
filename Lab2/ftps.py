@@ -1,3 +1,9 @@
+# Lab 2 - CSE 3461
+# Socket Programming
+
+# Sonny Shi
+# shi.354@osu.edu
+
  # Echo server program
 import socket
 import os
@@ -12,18 +18,24 @@ directory = "recv"
 if not os.path.exists(directory):
     os.makedirs(directory)
 
-
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((HOST, PORT))
 s.listen(1)
+
 conn, addr = s.accept()
+
+# Gets the file size in the next 4 bytes
 data = conn.recv(4)
 print("File Size", data.decode('utf-8'))
+
+# Gets the filename in the next 20 bytes (encoded in utf-8 so max string length is 20)
 data = conn.recv(20)
 newfilename = data.decode('utf-8').strip()
 print("File Name", newfilename)
 newfile = open("recv/"+newfilename, "wb")
+
 print ('Connected by', addr)
+
 while 1:
     data = conn.recv(1000)
     # Writes the data to the file when it receives it
@@ -34,6 +46,8 @@ while 1:
 # Close your streams!
 conn.close()
 newfile.close()
+
+# MD5 Checksum checking as seen in Lab1
 
 newfile = open("recv/"+newfilename, "rb")
 file = open(newfilename, 'rb')
