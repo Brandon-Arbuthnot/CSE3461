@@ -99,7 +99,24 @@ Leecher: A leecher is a personthat does not have the file donloaded yet and are 
   \begin{enumerate}
   \item \textbf{(6 points)} Explain the options \texttt{-a} and \texttt{-p} for \texttt{netstat}. Start an FTP connection using the command \texttt{ftp <ftp-site-address>}. You can pick any FTP site. A few publicly available FTP sites are listed at \texttt{http://www.gnu.org/prep/ftp.html}. After you login as anonymous, try to find information regarding the corresponding TCP connection using netstat in a different window. Explain the fields in the line corresponding to your ftp connection. What are the local and remote port numbers and IP addresses for that TCP connection? You do not need to submit the complete output of netstat, but you need to submit a printout of the line corresponding to your FTP connection. (Hint: What is the dedicated port used by FTP?)
 
+  -a: Shows both listening and non listening sockets
+
+  -p: Shows the PID and name of the program to which each socket belongs
+
+  I used \texttt{netstat -tan | grep \:21} to find information on the addresses in numerical form as well as to grab only entries that contained port number 21, which is the default port for FTP.
+
+  Local Address: 192.168.1.129:53648
+
+  Remote Address: 199.204.44.194:21
+
+  \includegraphics{netstat.PNG}
+
   \item \textbf{(2 points)} Try out the following options with \texttt{ping: -s} and \texttt{-i}. Explain the outputs. For this question, you don’t have to submit the output of \texttt{ping}.
+
+  -s: sets the size of the packet that the user sends in a ping. Default size is 56 bytes.
+
+  -i: sets the time interval between packets sent. Default is 1 second, requires sudo access for anything less than .2 seconds
+
 
   \end{enumerate}
 \end{enumerate}
