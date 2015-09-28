@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage{alltt}
+\usepackage{amsmath}
+\usepackage{fixltx2e}
+\usepackage{hyperref}
+
+\begin{document}
+\begin{flushright}
+Samson Shi.354
+
+\today
+
+CSE 3461 Homework 2
+\end{flushright}
+
+\begin{enumerate}
+
+\item[1]\textbf{(6 points)} UDP and TCP use one’s complement for their checksums. Suppose we have the following 8-bit bytes: 01010011, 01100110, 01110100. (While UDP and TCP use 16-bit words to compute the checksum, this problem only concerns 8-bit bytes.) Answer the following questions:
+
+\begin{enumerate}
+  \item \textbf{(2 points)} What is the one’s complement of the sum of these bytes? Show all your work.
+
+  \item \textbf{(2 points)} Why does UDP use the one’s complement of the sum, not the sum?
+
+  \item \textbf{(2 points)} How does the receiver detect errors? Can 1-bit or 2-bit errors go undetected? Explain your answer.
+
+\end{enumerate}
+
+\item[2]\textbf{(6 points)} Consider the Go-Back-N (GBN) protocol with a sender window size of $w$ and a sequence number range of $sn$. Suppose that at time $t$, the next in-order packet that the receiver is expecting has a sequence number of $k$. Assume messages are not reordered. Answer the following questions (and justify your answers):
+
+
+  \begin{enumerate}
+  \item \textbf{(3 points)} What are the possible sets of sequence numbers inside the sender’s window at time $t$?
+
+  \item \textbf{(3 points)} What are all possible values of the ACK fields in all possible messages currently propagating back to the sender at time $t$?
+
+  \end{enumerate}
+ 
+\item[3]\textbf{(6 points)} Consider the GBN and SR protocols. Suppose the sequence number space has size $k$. What is the largest allowable sender window that will avoid the occurrence of problems such as that in Figure 3.27 for each protocol?
+
+\item[4]\textbf{(4 points)} Describe the purpose of shortcuts in a DHT with an example.
+    
+\item[5]\textbf{(4 points)}Define the terms $torrent$, $seed$, and $leecher$ in the context of BitTorrent. (You may need to search outside the book for some of these terms).
+
+\item[6]\textbf{(6 points)} ) Consider transferring an enormous file of $L$ bytes from Host A to Host B. Assume an MSS of 536 bytes.
+
+  \begin{enumerate}
+  \item \textbf{(3 points)} What is the maximum value of L such that TCP sequence numbers are not exhausted? Recall that the TCP sequence number field has 4 bytes.
+  \item \textbf{(3 points)} For the $L$ you obtain in (a), find how long file transmission takes. Assume that a total of 66 bytes of transport, network, and data-link header are added to each segment before the resulting packet is sent out over a 155 Mbps link. Ignore flow control and congestion control so A can send the segments back-to-back and continuously.
+
+  \end{enumerate}
+
+\item[7]\textbf{(8 points)} ) ) Read the man pages for \texttt{netstat} and \texttt{ping} to answer the following questions.
+
+  \begin{enumerate}
+  \item \textbf{(6 points)} Explain the options \texttt{-a} and \texttt{-p} for \texttt{netstat}. Start an FTP connection using the command \texttt{ftp <ftp-site-address>}. You can pick any FTP site. A few publicly available FTP sites are listed at \texttt{http://www.gnu.org/prep/ftp.html}. After you login as anonymous, try to find information regarding the corresponding TCP connection using netstat in a different window. Explain the fields in the line corresponding to your ftp connection. What are the local and remote port numbers and IP addresses for that TCP connection? You do not need to submit the complete output of netstat, but you need to submit a printout of the line corresponding to your FTP connection. (Hint: What is the dedicated port used by FTP?)
+
+  \item \textbf{(2 points)} Try out the following options with \texttt{ping: -s} and \texttt{-i}. Explain the outputs. For this question, you don’t have to submit the output of \texttt{ping}.
+
+  \end{enumerate}
+\end{enumerate}
+
+\end{document}
