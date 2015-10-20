@@ -13,7 +13,7 @@ print ('Waiting for packets...')
 while True:
 	# Gets packets
 	data, addr = clientsock.recvfrom(1024)
-
+	data = data.decode('utf-8')
 	if not data: break
 
 	# Finds the port number 

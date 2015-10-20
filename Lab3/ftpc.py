@@ -31,8 +31,8 @@ secondseg = gammaAddress + str(gammaPort) + '2' + fileName
 datasegconst = gammaAddress + str(gammaPort) + '3'
 
 # Sends the first two segments
-s.sendto(firstseg, (HOST, trollPort))
-s.sendto(secondseg, (HOST, trollPort))
+s.sendto(firstseg.encode('utf-8'), (HOST, trollPort))
+s.sendto(secondseg.encode('utf-8'), (HOST, trollPort))
 
 # Iterates through the file in chunks of size 900 and sends the data if it exists
 chunksize = 900
@@ -41,7 +41,7 @@ while True:
 	# Concatentates the datasegconst information
 	dataseg = datasegconst + data
 	if dataseg:
-		s.sendto(dataseg, (HOST, trollPort))
+		s.sendto(dataseg.encode('utf-8'), (HOST, trollPort))
 	else:
 		break
 
