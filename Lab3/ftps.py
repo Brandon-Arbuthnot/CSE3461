@@ -25,5 +25,5 @@ while True:
 		newfile.write(strippeddata)
 
 	if not data: break
-  	clientsock.sendto(data, addr)
+  		clientsock.sendto(data, addr)
   	break
