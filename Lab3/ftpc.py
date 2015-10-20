@@ -1,3 +1,9 @@
+# Lab 3 - CSE 3461
+# Socket Programming
+
+# Sonny Shi
+# shi.354@osu.edu
+
 # Echo client program
 import socket
 import os

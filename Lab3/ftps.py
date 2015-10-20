@@ -1,3 +1,9 @@
+# Lab 3 - CSE 3461
+# Socket Programming
+
+# Sonny Shi
+# shi.354@osu.edu
+
 import socket
 import os
 import sys
@@ -58,5 +64,3 @@ print("The two files are bitwise identical: " + str(oldhash.hexdigest() == newha
 
 file.close()
 newfile.close()
-
-
