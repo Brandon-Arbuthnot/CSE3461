@@ -29,4 +29,34 @@ while True:
 	if flag == '3':
 		strippeddata = data[pos + len(gammaPort) + 1:]
 		newfile.write(strippeddata)
+# MD5 Checksum checking as seen in Lab1
+
+newfile = open("recv/"+newfilename, "rb")
+file = open(newfilename, 'rb')
+
+oldhash = hashlib.md5()
+newhash = hashlib.md5()
+
+print("Hashing MD5 checksum for both files...")
+
+# Loop to hash the MD5 checksum for both files
+
+chunksize = 1000
+while True:
+	data = file.read(chunksize)
+	newdata = newfile.read(chunksize)
+	if data:
+		oldhash.update(data)
+		newhash.update(newdata)
+
+	else:
+		break
+
+print("The two files are bitwise identical: " + str(oldhash.hexdigest() == newhash.hexdigest()))
+
+# Always close your streams
+
+file.close()
+newfile.close()
+
 
