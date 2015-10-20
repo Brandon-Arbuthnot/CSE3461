@@ -26,7 +26,7 @@ file = open(fileName, 'rb')
 filestat = os.stat(fileName)
 
 # Readies the segments
-firstseg = gammaAddress + gammaPort + '1' + str(filestat.st_size)
+firstseg = gammaAddress + gammaPort + '1' + filestat.st_size.decode("utf-8")
 secondseg = gammaAddress + gammaPort + '2' + fileName
 datasegconst = gammaAddress + gammaPort + '3'
 
