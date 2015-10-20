@@ -21,12 +21,12 @@ if not os.path.exists(directory):
     os.makedirs(directory)
 
 # Readies file
-file = open(filName, 'rb')
+file = open(fileName, 'rb')
 
 filestat = os.stat(fileName)
 
 # Readies the segments
-firstseg = gammaAddress + gammaPort + '1' + filestat.st_size
+firstseg = gammaAddress + gammaPort + '1' + str(filestat.st_size)
 secondseg = gammaAddress + gammaPort + '2' + fileName
 datasegconst = gammaAddress + gammaPort + '3'
 
