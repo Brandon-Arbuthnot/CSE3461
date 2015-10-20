@@ -38,10 +38,9 @@ s.sendto(secondseg.encode('utf-8'), (HOST, trollPort))
 chunksize = 900
 while True:
 	data = file.read(chunksize)
-	data = data.encode('utf-8')
-	datasegconst = datasegconst.encode('utf-8')
+
 	# Concatentates the datasegconst information
-	dataseg = datasegconst + data
+	dataseg = datasegconst + str(data)
 	if dataseg:
 		s.sendto(dataseg.encode('utf-8'), (HOST, trollPort))
 	else:
