@@ -26,9 +26,9 @@ file = open(fileName, 'rb')
 filestat = os.stat(fileName)
 
 # Readies the segments
-firstseg = gammaAddress + gammaPort + '1' + filestat.st_size.decode("utf-8")
-secondseg = gammaAddress + gammaPort + '2' + fileName
-datasegconst = gammaAddress + gammaPort + '3'
+firstseg = gammaAddress + str(gammaPort) + '1' + str(filestat.st_size)
+secondseg = gammaAddress + str(gammaPort) + '2' + fileName
+datasegconst = gammaAddress + str(gammaPort) + '3'
 
 # Sends the first two segments
 s.sendto(firstseg, (HOST, trollPort))
