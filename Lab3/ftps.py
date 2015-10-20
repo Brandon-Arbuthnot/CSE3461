@@ -8,6 +8,7 @@ clientsock.bind((HOST, int(gammaPort)))
 
 print ('Waiting for packets...')
 while True:
+	if not data: break
 	# Gets the file size in the next 4 bytes
 	data, addr = clientsock.recvfrom(1024)
 	# Finds the port number 
@@ -24,6 +25,3 @@ while True:
 		strippeddata = data[pos + len(gammaPort) + 1:]
 		newfile.write(strippeddata)
 
-	if not data: break
-  		clientsock.sendto(data, addr)
-  	break
