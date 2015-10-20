@@ -4,7 +4,7 @@ HOST = ''
 gammaPort = sys.argv[1]   
 
 clientsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP uses Datagram, but not stream
-clientsock.bind((HOST, int(gammaPort))
+clientsock.bind((HOST, int(gammaPort)))
 
 print ('Waiting for packets...')
 while True:
