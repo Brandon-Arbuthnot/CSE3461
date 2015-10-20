@@ -1,4 +1,7 @@
 import socket
+import os
+import sys
+import hashlib
 
 HOST = ''
 gammaPort = sys.argv[1]   
@@ -8,9 +11,11 @@ clientsock.bind((HOST, int(gammaPort)))
 
 print ('Waiting for packets...')
 while True:
-	if not data: break
-	# Gets the file size in the next 4 bytes
+	# Gets packets
 	data, addr = clientsock.recvfrom(1024)
+
+	if not data: break
+
 	# Finds the port number 
 	pos = data.find(gammaPort)
 	# Finds the flag
