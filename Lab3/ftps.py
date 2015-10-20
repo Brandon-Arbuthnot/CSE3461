@@ -6,7 +6,7 @@ gammaPort = sys.argv[1]
 clientsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP uses Datagram, but not stream
 clientsock.bind((HOST, int(gammaPort))
 
-print "Waiting for packets..."
+print ("Waiting for packets...")
 while True:
 	# Gets the file size in the next 4 bytes
 	data, addr = clientsock.recvfrom(1024)
