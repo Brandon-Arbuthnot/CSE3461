@@ -5,7 +5,7 @@ import sys
 import hashlib
 
 # Sets up ports
-HOST = 'localhost'
+HOST = ''
 gammaAddress = sys.argv[1]   
 gammaPort = int(sys.argv[2])          
 trollPort = int(sys.argv[3])
@@ -21,13 +21,13 @@ if not os.path.exists(directory):
     os.makedirs(directory)
 
 # Readies file
-file = open(filename, 'rb')
+file = open(filName, 'rb')
 
-filestat = os.stat(filename)
+filestat = os.stat(fileName)
 
 # Readies the segments
 firstseg = gammaAddress + gammaPort + '1' + filestat.st_size
-secondseg = gammaAddress + gammaPort + '2' + filename
+secondseg = gammaAddress + gammaPort + '2' + fileName
 datasegconst = gammaAddress + gammaPort + '3'
 
 # Sends the first two segments
