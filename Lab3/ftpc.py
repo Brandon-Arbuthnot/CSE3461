@@ -5,7 +5,7 @@ import sys
 import hashlib
 
 # Sets up ports
-HOST = "localhost"
+HOST = 'localhost'
 gammaAddress = sys.argv[1]   
 gammaPort = int(sys.argv[2])          
 trollPort = int(sys.argv[3])
@@ -16,7 +16,7 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP uses Datagram, but no
 msg = 'Ready to transfer file.'
 
 # Creates recv directory
-directory = "recv"
+directory = 'recv'
 if not os.path.exists(directory):
     os.makedirs(directory)
 
@@ -26,9 +26,9 @@ file = open(filename, 'rb')
 filestat = os.stat(filename)
 
 # Readies the segments
-firstseg = gammaAddress + gammaPort + "1" + filestat.st_size
-secondseg = gammaAddress + gammaPort + "2" + filename
-datasegconst = gammaAddress + gammaPort + "3"
+firstseg = gammaAddress + gammaPort + '1' + filestat.st_size
+secondseg = gammaAddress + gammaPort + '2' + filename
+datasegconst = gammaAddress + gammaPort + '3'
 
 # Sends the first two segments
 s.sendto(firstseg, (HOST, trollPort))
@@ -48,4 +48,4 @@ while True:
 
 data = s.recv(1024)
 s.close()
-print ("Received -> ", repr(data))
+print ('Received -> ', repr(data))
